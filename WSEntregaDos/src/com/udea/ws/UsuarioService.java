@@ -15,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,14 +24,28 @@ import com.udea.encode.Cifrar;
 import com.udea.exception.MyException;
 import com.udea.logica.imp.UsuarioLognImp;
 import com.udea.ws.dto.*;
-
+/**<h1> UsuarioService </h1>
+*Clase encargada de implementar los servicios a usuarios
+ * 
+ * @author Jorge Mario Fernandez
+ * @version 2.0
+ * @since 20-06-15
+ *
+ */
 @Path("usuario")
 @Component
 public class UsuarioService {
 
+	/**Objeto de la clase logger, el cual nos permite log mensajes usando la clase propia
+	 * 
+	 */
+	Logger log = Logger.getLogger(this.getClass());
 	@Autowired
 	private UsuarioLognImp usuariolg;
-	
+	/**Con este metodo obtenemos todos los usuarios
+	 * @return List<Usuario> retorna la lista de Usuarios
+	 * @throws MyException Esta es una excepción propia en caso de inconvenientes
+	 */
 	@GET
 	@Path("/obtener")
 	public List<UsuarioWS> obtener() throws RemoteException {
@@ -48,13 +63,17 @@ public class UsuarioService {
 			}
 
 		} catch (MyException e) {
+			log.error("ocurrió un error al obtener la lista de usuarios", e);
 			throw new RemoteException(e.getMessage());
 
 		}
 		return usuarios;
 	}
 	
-
+	/**Este metodo guarda al usuario  dentro de las bases de datos
+	 * @param usuario el usuario que se desea guardar enla base de datos
+	 * @throws MyException Esta es una excepción propia en caso de inconvenientes
+	 */
 	@POST
 	@Path("/guardar")
 	@Produces(MediaType.TEXT_HTML)
@@ -69,25 +88,19 @@ public class UsuarioService {
 			@FormParam("grupoInvestigacion") String grupoInvestigacion)
 			throws RemoteException {
 		try {
-			System.out.print("idUsuario: "+idUsuario);
-			System.out.print(" nombre "+ nombre );
-			System.out.print(" apellido "+ apellido);
-			System.out.print(" telefono "+telefono);
-			System.out.print(" email "+email);
-			System.out.print(" username "+username);
-			System.out.print(" password "+password);
-			System.out.print(" grupoInvestigacion "+grupoInvestigacion);
-			
-			System.out.print(idUsuario);
 			usuariolg.guardarUsuario(idUsuario, nombre, apellido, telefono,
 					email, username, password, grupoInvestigacion);
 		} catch (MyException e) {
+			log.error("ocurrió un error al guardar el usuario", e);
 			return e.getMessage();
 		}
 		return "Se ingreso el usuario";
 	}
 
-	//@Produces(MediaType.TEXT_HTML)
+	/**Con este metodo se modifica la información del usuario
+	 * @param usuario usuario a la cual se le han modificado los datos
+	 * @throws MyException Esta es una excepción propia en caso de inconvenientes
+	 */
 	@POST
 	@Path("/actualizar")
 	@Produces(MediaType.TEXT_HTML)
@@ -106,13 +119,17 @@ public class UsuarioService {
 					email, username, password, grupoInvestigacion);
 
 		} catch (MyException e) {
+			log.error("ocurrió un error  al actualizar el usuario", e);
 			return e.getMessage();
 		}
 
 		return "actualizado";
 	}
 
-//	@Produces(MediaType.TEXT_HTML)
+	/**Con este metodo se eliminara el usuario de la base de datos
+	 * @param usuario el usuario a borrar
+	 * @throws MyException Esta es una excepción propia en caso de inconvenientes
+	 */
 	@PUT
 	@Path("/eliminar/{idUsuario}")
 	public String eliminarUsuario(@PathParam("idUsuario") int idUsuario)
@@ -121,12 +138,17 @@ public class UsuarioService {
 			usuariolg.eliminarUsuario(idUsuario);
 
 		} catch (MyException e) {
+			log.error("ocurrió un error al actualizar el usuario", e);
 			return e.getMessage();
 		}
 
 		return "eliminado";
 	}
-
+	/**Con este metodo se valida el usuario del sistema
+	 * @param username del usuario 
+	 * @param password del usuario
+	 * @throws MyException Esta es una excepción propia en caso de inconvenientes
+	 */
 	@GET
 	@Path("/validar")
 	public String validar(@QueryParam("username") String username 
@@ -139,6 +161,7 @@ public class UsuarioService {
 			System.out.print(" password "+cifrar.encrypt(password));
 			usuariolg.validar(username, cifrar.encrypt(password));
 		} catch (MyException e) {
+			log.error("ocurrió un error al eliminar el usuario", e);
 			return e.getMessage();
 		}
 		
