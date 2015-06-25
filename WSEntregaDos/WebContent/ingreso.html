@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ingreso de usuarios</title>
+</head>
+<body>
+	<h1>Ingreso de usuarios</h1>
+	<form action="rest/usuario/guardar" method="POST">
+		<label for="idUsuario">Numero ID:</label>
+		<input type="text" name="idUsuario" required="required"><br/>
+		<label for="nombre">Nombre:</label>
+		<input type="text" name="nombre" required="required"><br/>
+		<label for="apellido">Apellido:</label>
+		<input type="text" name="apellido" required="required"><br/>
+		<label for="telefono">Telefono:</label>
+		<input type="tel" name="telefono" required="required"><br/>
+		<label for="email">email:</label>
+		<input type="email" name="email" required="required"><br/>
+		<label for="username">username:</label>
+		<input type="text" name="username" required="required"><br/>
+		<label for="password">password:</label>
+		<input type="password" name="password" required="required"><br/>
+		<label for="grupoInvestigacion">grupo Investigacion:</label>
+		<input type="text" name="grupoInvestigacion" required="required"><br/>
+		<input type="submit" value="submit">
+	</form>
+</body>
+</html>
