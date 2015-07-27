@@ -2,23 +2,7 @@
 angularFormsApp.controller('efController',
     function efController($scope, $window, $routeParams, DataService) {
 
-        if ($routeParams.id)
-            $scope.usuario = DataService.getEmployee($routeParams.id);
-        else
-            $scope.usuario = { id: 0 };
-
-        $scope.editableUsuario = angular.copy($scope.usuario);
-
-        $scope.departments = [
-            "Engineering",
-            "Marketing",
-            "Finance",
-            "Administration"
-        ];
-
-        $scope.shouldShowFullName = function () {
-            return true;
-        };
+        
 
         $scope.submitForm = function () {
 

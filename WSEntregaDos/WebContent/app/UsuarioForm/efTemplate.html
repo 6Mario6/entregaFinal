@@ -1,73 +1,79 @@
-<form class="form-horizontal" role="form" ng-submit="submitForm()">
+<form class="form-horizontal" role="form" name="usuarioForm">
 
-    <fieldset>
-        <legend>Ingreso de usuarios</legend>
-        <div class="form-group">
-            <label for="idUsuario" class="col-sm-3 control-label">Numero ID:</label>
-            <div class="col-sm-9">
-                <input type="text" id="idUsuario" name="idUsuario" class="form-control"
-                       ng-model="usuario.idUsuario" />
-            </div>
-        </div>
+	<fieldset>
+		<legend>Ingreso de usuarios</legend>
+		<div class="form-group">
+			<label for="idUsuario" class="col-sm-3 control-label">Numero
+				ID:</label>
+			<div class="col-sm-9">
+				<input type="text" id="idUsuario" name="idUsuario"
+					class="form-control" ng-model="usuario.idUsuario" />
+			</div>
+		</div>
 
-        <div class="form-group">
-            <label for="nombre" class="col-sm-3 control-label">Nombre:</label>
-            <div class="col-sm-9">
-                <input type="text" name="nombre" id="nombre" class="form-control" 
-                          ng-model="usuario.nombre"></input>
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label for="apellido" class="col-sm-3 control-label">Apellido:</label>
-            <div class="col-sm-9">
-                <input  type="text" name="apellido" id="apellido" class="form-control" 
-                          ng-model="usuario.apellido"></input>
-            </div>
-        </div>
-         <div class="form-group">
-            <label for="telefono" class="col-sm-3 control-label">Telefono:</label>
-            <div class="col-sm-9">
-                <input type="tel" name="telefono" id="telefono" class="form-control" 
-                          ng-model="usuario.telefono"></input>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">Email:</label>
-            <div class="col-sm-9">
-                <input type="email" name="email" id="email" class="form-control" 
-                          ng-model="usuario.email"></input>
-            </div>
-        </div>
-        
-         <div class="form-group">
-            <label for="username" class="col-sm-3 control-label">username:</label>
-            <div class="col-sm-9">
-                <input type="text" name="username" id="username" class="form-control" 
-                          ng-model="usuario.username"></input>
-            </div>
-        </div>
-		 <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">password:</label>
-            <div class="col-sm-9">
-                <input type="password" name="password" id="password" class="form-control" 
-                          ng-model="usuario.password"></input>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="department" class="col-sm-3 control-label">grupo Investigacion</label>
-            <div class="col-sm-9">
-                <select name="department" id="department" class="form-control"
-                        ng-model="usuario.department"
-                        ng-options="dept for dept in departments"></select>
-            </div>
-        </div>
+		<div class="form-group">
+			<label for="nombre" class="col-sm-3 control-label">Nombre:</label>
+			<div class="col-sm-9">
+				<input type="text" name="nombre" id="nombre" class="form-control"
+					ng-model="usuario.nombre"></input>
+			</div>
+		</div>
 
-    </fieldset>
-    <br />
+		<div class="form-group">
+			<label for="apellido" class="col-sm-3 control-label">Apellido:</label>
+			<div class="col-sm-9">
+				<input type="text" name="apellido" id="apellido"
+					class="form-control" ng-model="usuario.apellido"></input>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="telefono" class="col-sm-3 control-label">Telefono:</label>
+			<div class="col-sm-9">
+				<input type="tel" name="telefono" id="telefono" class="form-control"
+					ng-model="usuario.telefono"></input>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="email" class="col-sm-3 control-label">Email:</label>
+			<div class="col-sm-9">
+				<input type="email" name="email" id="email" class="form-control"
+					ng-model="usuario.email"></input>
+			</div>
+		</div>
 
-    <div class="col-sm-offset-3 col-sm-9">
-        <input type="submit" class="btn btn-primary" value="Guardar" />
-    </div>
+		<div class="form-group">
+			<label for="username" class="col-sm-3 control-label">username:</label>
+			<div class="col-sm-9">
+				<input type="text" name="username" id="username"
+					class="form-control" ng-model="usuario.username"></input>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="password" class="col-sm-3 control-label">password:</label>
+			<div class="col-sm-9">
+				<input type="password" name="password" id="password"
+					class="form-control" ng-model="usuario.password"></input>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="grupo" class="col-sm-3 control-label">grupo
+				Investigacion</label>
+			<div class="col-sm-9">
+				<input type="text" name="grupo" id="grupo" class="form-control"
+					ng-model="usuario.grupo"></input>
+			</div>
+		</div>
+
+	</fieldset>
+	<br />
+
+	<div class="col-sm-offset-3 col-sm-9">
+		<input type="submit" class="btn btn-primary" value="Guardar"
+			ng-click="submitForm()" /> <input type="reset"
+			class="btn btn-warning" value="Reset" ng-click="resetForm()" />
+			 <input type="button" class="btn btn-default" value="Cancel"
+			ng-click="cancelForm()" />
+		<div class="alert alert-danger" ng-if="hasFormError">{{formErrors}}</div>
+	</div>
 
 </form>

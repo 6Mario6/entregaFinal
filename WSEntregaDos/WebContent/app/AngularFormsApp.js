@@ -11,10 +11,6 @@ angularFormsApp.config(function ($routeProvider) {
             templateUrl: "app/UsuarioForm/efTemplate.html",
             controller: "efController"
         })
-        .when("/updateUsuarioForm/:id", {
-            templateUrl: "app/UsuarioForm/efTemplate.html",
-            controller: "efController"
-        })
         .otherwise({
             redirectTo: "/home"
         });
@@ -22,14 +18,8 @@ angularFormsApp.config(function ($routeProvider) {
 
 angularFormsApp.controller("HomeController",
     function ($scope, $location, DataService) {
-
         $scope.showCreateUsuarioForm = function () {
             $location.path('/newUsuarioForm');
         };
-
-        $scope.showUpdateUsuarioForm = function (id) {
-            $location.path('/updateUsuarioForm/' + id)
-        };
-
     });
 
