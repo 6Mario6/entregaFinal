@@ -9,7 +9,7 @@ angularFormsApp.controller('efController',
 
             if ($scope.usuarioForm.$invalid)
                 return;
-            alert("Hello Friend!!")
+          
             Usuarios.guardarUsuario($scope.usuario.idUsuario, $scope.usuario.nombre,
     				$scope.usuario.apellido, $scope.usuario.telefono,
     				$scope.usuario.email,
@@ -18,21 +18,17 @@ angularFormsApp.controller('efController',
     				$scope.usuario.grupo
     				).success(
     						function(data) {
-    							
-    							$location.url('../rest/usuario/guardar');
+    						//	alert("Exploit!! "+$scope.usuario.grupo);
+    							$location.url('/home');
     						});
             
         };
 
         $scope.cancelForm = function () {
-			alert("Hello Friend!!");
-
             $window.history.back();
         };
 
         $scope.resetForm = function () {
-			alert("Hello Friend!!");
-
             $scope.$broadcast('hide-errors-event');
         };
 
