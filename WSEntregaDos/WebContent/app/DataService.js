@@ -1,22 +1,19 @@
-﻿
-angularFormsApp.factory('DataService',
-    function () {
-        var getUsuario = function (id) {
-           
-            return undefined;
-        };
+﻿angularFormsApp.service('Usuarios', function($http) {
+	this.guardarUsuario = function(idUsuario,nombre,apellido, telefono,email,username,password,grupo) {
+		return $http({
+			method : 'POST',
+			url : '../rest/usuario/guardar',
+			params : {
+				idUsuario : idUsuario,
+				nombre : nombre,
+				apellido : apellido,
+				telefono : telefono,
+				email : email,
+				username : username,
+				password : password,
+				grupoInvestigacion : grupo,
+			}
+		});
 
-        var insertUsuario = function (newUsuario) {
-            return true;
-        };
-
-        var updateUsuario = function (usuario) {
-            return true;
-        };
-
-        return {
-            insertUsuario: insertUsuario,
-            updateUsuario: updateUsuario,
-            getUsuario: getUsuario
-        };
-    });
+	};
+});
