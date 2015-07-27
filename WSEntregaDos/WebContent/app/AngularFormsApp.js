@@ -7,12 +7,12 @@ angularFormsApp.config(function ($routeProvider) {
             templateUrl: "app/Home.html",
             controller: "HomeController"
         })
-        .when("/newEmployeeForm", {
-            templateUrl: "app/EmployeeForm/efTemplate.html",
+        .when("/newUsuarioForm", {
+            templateUrl: "app/UsuarioForm/efTemplate.html",
             controller: "efController"
         })
-        .when("/updateEmployeeForm/:id", {
-            templateUrl: "app/EmployeeForm/efTemplate.html",
+        .when("/updateUsuarioForm/:id", {
+            templateUrl: "app/UsuarioForm/efTemplate.html",
             controller: "efController"
         })
         .otherwise({
@@ -23,12 +23,12 @@ angularFormsApp.config(function ($routeProvider) {
 angularFormsApp.controller("HomeController",
     function ($scope, $location, DataService) {
 
-        $scope.showCreateEmployeeForm = function () {
-            $location.path('/newEmployeeForm');
+        $scope.showCreateUsuarioForm = function () {
+            $location.path('/newUsuarioForm');
         };
 
-        $scope.showUpdateEmployeeForm = function (id) {
-            $location.path('/updateEmployeeForm/' + id)
+        $scope.showUpdateUsuarioForm = function (id) {
+            $location.path('/updateUsuarioForm/' + id)
         };
 
     });

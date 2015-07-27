@@ -1,7 +1,7 @@
 ﻿
 angularFormsApp.factory('DataService',
     function () {
-        var getEmployee = function (id) {
+        var getUsuario = function (id) {
             if (id == 123) {
                 return {
                     id: 123,
@@ -19,17 +19,17 @@ angularFormsApp.factory('DataService',
             return undefined;
         };
 
-        var insertEmployee = function (newEmployee) {
+        var insertUsuario = function (newUsuario) {
             return true;
         };
 
-        var updateEmployee = function (employee) {
+        var updateUsuario = function (usuario) {
             return true;
         };
 
         return {
-            insertEmployee: insertEmployee,
-            updateEmployee: updateEmployee,
-            getEmployee: getEmployee
+            insertUsuario: insertUsuario,
+            updateUsuario: updateUsuario,
+            getUsuario: getUsuario
         };
     });

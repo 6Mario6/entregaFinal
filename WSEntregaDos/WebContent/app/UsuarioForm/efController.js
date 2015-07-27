@@ -3,11 +3,11 @@ angularFormsApp.controller('efController',
     function efController($scope, $window, $routeParams, DataService) {
 
         if ($routeParams.id)
-            $scope.employee = DataService.getEmployee($routeParams.id);
+            $scope.usuario = DataService.getEmployee($routeParams.id);
         else
-            $scope.employee = { id: 0 };
+            $scope.usuario = { id: 0 };
 
-        $scope.editableEmployee = angular.copy($scope.employee);
+        $scope.editableUsuario = angular.copy($scope.usuario);
 
         $scope.departments = [
             "Engineering",
@@ -24,20 +24,20 @@ angularFormsApp.controller('efController',
 
             $scope.$broadcast('show-errors-event');
 
-            if ($scope.employeeForm.$invalid)
+            if ($scope.usuarioForm.$invalid)
                 return;
 
 
-            if ($scope.editableEmployee.id == 0) {
-                // insert new employee
-                DataService.insertEmployee($scope.editableEmployee);
+            if ($scope.editableUsuario.id == 0) {
+                // insert new usuario
+                DataService.insertUsuario($scope.editableUsuario);
             }
             else {
-                // update the employee
-                DataService.updateEmployee($scope.editableEmployee);
+                // update the Usuario
+                DataService.updateUsuario($scope.editableUsuario);
             }
 
-            $scope.employee = angular.copy($scope.editableEmployee);
+            $scope.usuario = angular.copy($scope.editableUsuario);
             $window.history.back();
         };
 
