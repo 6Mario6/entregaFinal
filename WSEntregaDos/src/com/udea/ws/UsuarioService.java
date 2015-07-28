@@ -88,15 +88,6 @@ public class UsuarioService {
 			@QueryParam("grupoInvestigacion") String grupoInvestigacion)
 			throws RemoteException {
 		try {
-			System.out.print("Con query\n");
-			System.out.print(idUsuario+"\n");
-			System.out.print(nombre+"\n");
-			System.out.print(apellido+"\n");
-			System.out.print(telefono+"\n");
-			System.out.print(email+"\n");
-			System.out.print(username+"\n");
-			System.out.print(password+"\n");
-			System.out.print(grupoInvestigacion+"\n");
 			usuariolg.guardarUsuario(idUsuario, nombre, apellido, telefono,
 					email, username, password, grupoInvestigacion);
 		} catch (MyException e) {

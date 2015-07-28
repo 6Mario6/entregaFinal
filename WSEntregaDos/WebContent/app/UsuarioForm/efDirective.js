@@ -4,6 +4,6 @@ angularFormsApp.directive('usuarioForm',
         return {
             restrict: 'E',
             templateUrl: 'app/UsuarioForm/efTemplate.html'
-        }
+        };
 
     });

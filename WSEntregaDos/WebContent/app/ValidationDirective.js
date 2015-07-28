@@ -1,7 +1,5 @@
 ﻿
-//
-// modified from Paul Yoder's blog:  blog.yodersolutions.com
-//
+
 
 angularFormsApp.directive('showErrors', function ($timeout) {
 

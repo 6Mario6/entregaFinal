@@ -18,8 +18,9 @@ angularFormsApp.controller('efController',
     				$scope.usuario.grupo
     				).success(
     						function(data) {
-    						//	alert("Exploit!! "+$scope.usuario.grupo);
-    							$location.url('/home');
+    					alert("Se ingreso usuario correctamente!! "+$scope.usuario.grupo);
+    		            $scope.$broadcast('hide-errors-event');
+    		            $window.history.back();
     						});
             
         };
