@@ -76,18 +76,27 @@ public class UsuarioService {
 	 */
 	@POST
 	@Path("/guardar")
-	@Produces(MediaType.TEXT_HTML)
+	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String guardarUsuario(@FormParam("idUsuario") int idUsuario,
-			@FormParam("nombre") String nombre,
-			@FormParam("apellido") String apellido,
-			@FormParam("telefono") String telefono,
-			@FormParam("email") String email,
-			@FormParam("username") String username,
-			@FormParam("password") String password,
-			@FormParam("grupoInvestigacion") String grupoInvestigacion)
+	public String guardarUsuario(@QueryParam("idUsuario") int idUsuario,
+			@QueryParam("nombre") String nombre,
+			@QueryParam("apellido") String apellido,
+			@QueryParam("telefono") String telefono,
+			@QueryParam("email") String email,
+			@QueryParam("username") String username,
+			@QueryParam("password") String password,
+			@QueryParam("grupoInvestigacion") String grupoInvestigacion)
 			throws RemoteException {
 		try {
+			System.out.print("Con query\n");
+			System.out.print(idUsuario+"\n");
+			System.out.print(nombre+"\n");
+			System.out.print(apellido+"\n");
+			System.out.print(telefono+"\n");
+			System.out.print(email+"\n");
+			System.out.print(username+"\n");
+			System.out.print(password+"\n");
+			System.out.print(grupoInvestigacion+"\n");
 			usuariolg.guardarUsuario(idUsuario, nombre, apellido, telefono,
 					email, username, password, grupoInvestigacion);
 		} catch (MyException e) {
