@@ -1,24 +1,25 @@
 ﻿
-angularFormsApp.controller('efController',
-		 ["$scope", "$window", "$routeParams", "Usuarios",
-    function efController($scope, $window, $routeParams, Usuarios) {
+angularFormsApp.controller('efsController',
+		 ["$scope", "$window", "$routeParams", "DataService",
+    function efController($scope, $window, $routeParams, DataService) {
 
         $scope.submitForm = function () {
 
             $scope.$broadcast('show-errors-event');
 
-            if ($scope.usuarioForm.$invalid)
+            if ($scope.solicituForm.$invalid)
                 return;
           
-            Usuarios.guardarUsuario($scope.usuario.idUsuario, $scope.usuario.nombre,
-    				$scope.usuario.apellido, $scope.usuario.telefono,
-    				$scope.usuario.email,
-    				$scope.usuario.username,
-    				$scope.usuario.password,
-    				$scope.usuario.grupo
+            DataService.guardarSolicitud($scope.solicitud.idReservacion,
+            		$scope.solicitud.idDispositivo,
+            		$scope.solicitud.idUsuarioPrestamo,
+            		$scope.solicitud.idAdministrador,
+            		$scope.solicitud.fechasolicitudinicio,
+            		$scope.solicitud.horasolicitudinicio,
+            		$scope.solicitud.estadosolicitud
     				).success(
     						function(data) {
-    					alert("Se ingreso usuario correctamente!! ");
+    					alert("Se ingreso solicitud correctamente ");
     		            $scope.$broadcast('hide-errors-event');
     		            $window.history.back();
     						});

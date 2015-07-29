@@ -1,7 +1,7 @@
 ﻿
 angularFormsApp.controller('efController',
-		 ["$scope", "$window", "$routeParams", "Usuarios",
-    function efController($scope, $window, $routeParams, Usuarios) {
+		 ["$scope", "$window", "$routeParams", "DataService",
+    function efController($scope, $window, $routeParams, DataService) {
 
         $scope.submitForm = function () {
 
@@ -10,7 +10,7 @@ angularFormsApp.controller('efController',
             if ($scope.usuarioForm.$invalid)
                 return;
           
-            Usuarios.guardarUsuario($scope.usuario.idUsuario, $scope.usuario.nombre,
+            DataService.guardarUsuario($scope.usuario.idUsuario, $scope.usuario.nombre,
     				$scope.usuario.apellido, $scope.usuario.telefono,
     				$scope.usuario.email,
     				$scope.usuario.username,
@@ -18,7 +18,7 @@ angularFormsApp.controller('efController',
     				$scope.usuario.grupo
     				).success(
     						function(data) {
-    				   $window.alert("Se ingreso usuario correctamente!! ");
+    				   $window.alert("Se ingreso usuario correctamente ");
 
 
     		            $scope.$broadcast('hide-errors-event');

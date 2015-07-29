@@ -4,7 +4,7 @@
 		<legend>Solicitud de dispositivos</legend>
 		<div class="form-group">
 			<label for="idReservacion" class="col-sm-3 control-label">Numero
-				ID:</label>
+				ID de la reservacion:</label>
 			<div class="col-sm-9">
 				<input type="text" id="idReservacion" name="idReservacion"
 					class="form-control" ng-model="solicitud.idReservacion" />
@@ -62,9 +62,9 @@
 
 	<div class="col-sm-offset-3 col-sm-9">
 		<input type="submit" class="btn btn-primary" value="Guardar"
-			ng-click="submitForm()" /> <input type="reset"
-			class="btn btn-warning" value="Reset" ng-click="resetForm()" />
-			 <input type="button" class="btn btn-default" value="Cancel"
+			ng-click="submitForm()" /> 
+		<input type="reset"class="btn btn-warning" value="Reset" ng-click="resetForm()" />
+	 <input type="button" class="btn btn-default" value="Cancel"
 			ng-click="cancelForm()" />
 		<div class="alert alert-danger" ng-if="hasFormError">{{formErrors}}</div>
 	</div>

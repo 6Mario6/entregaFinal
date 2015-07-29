@@ -20,7 +20,7 @@ angularFormsApp.config(function ($routeProvider) {
 });
 
 angularFormsApp.controller("HomeController",
-    function ($scope, $location, Usuarios) {
+    function ($scope, $location, DataService) {
         $scope.showCreateUsuarioForm = function () {
             $location.path('/newUsuarioForm');
         };
