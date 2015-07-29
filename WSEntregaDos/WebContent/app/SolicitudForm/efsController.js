@@ -1,9 +1,9 @@
 ﻿
 angularFormsApp.controller('efsController',
-		 ["$scope", "$window", "$routeParams", "DataService",
-    function efsController($scope, $window, $routeParams, DataService) {
+		 ["$scope", "$window", "$routeParams", "DataSolicitudService",
+    function efsController($scope, $window, $routeParams, DataSolicitudService) {
 alert("Controlador efsController");
-        $scope.submitForm = function () {
+        $scope.submitSolicitudForm = function () {
 
             $scope.$broadcast('show-errors-event');
 
@@ -11,7 +11,7 @@ alert("Controlador efsController");
                 return;
 			alert("Se  "+$scope.solicitud.horasolicitudinicio);
 
-            DataService.guardarSolicitud($scope.solicitud.idReservacion,
+			DataSolicitudService.guardarSolicitud($scope.solicitud.idReservacion,
             		$scope.solicitud.idDispositivo,
             		$scope.solicitud.idUsuarioPrestamo,
             		$scope.solicitud.idAdministrador,
@@ -27,11 +27,15 @@ alert("Controlador efsController");
             
         };
 
-        $scope.cancelForm = function () {
+        $scope.cancelSolicitudForm = function () {
+        	alert("Cancelo");
+
             $window.history.back();
         };
 
-        $scope.resetForm = function () {
+        $scope.resetSolicitudForm= function () {
+        	alert("reset");
+
             $scope.$broadcast('hide-errors-event');
         };
 

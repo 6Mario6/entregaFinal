@@ -2,7 +2,7 @@
 angularFormsApp.controller('efController',
 		 ["$scope", "$window", "$routeParams", "DataService",
     function efController($scope, $window, $routeParams, DataService) {
-			 alert("Controlador efController");
+			 alert("Controlador Ok");
         $scope.submitForm = function () {
 
             $scope.$broadcast('show-errors-event');
