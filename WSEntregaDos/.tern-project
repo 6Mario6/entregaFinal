@@ -1,1 +1,1 @@
-{"ide":{"scriptPaths":[{"type":"FOLDER","path":"WebContent/app"},{"type":"FOLDER","path":"WebContent/resources/js"}]},"plugins":{"guess-types":{},"angular":{}},"libs":["ecma5","browser"]}
+{"ide":{"scriptPaths":[{"type":"FOLDER","path":"WebContent/app"},{"type":"FOLDER","path":"WebContent/resources/js"},{"type":"FOLDER","path":"WebContent/app/SolicitudForm"},{"type":"FOLDER","path":"WebContent/app/UsuarioForm"}]},"plugins":{"guess-types":{},"angular":{}},"libs":["ecma5","browser"]}
