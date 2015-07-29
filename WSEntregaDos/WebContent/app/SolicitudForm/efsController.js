@@ -7,6 +7,7 @@ angularFormsApp.controller("efsController",
 
 	             if ($scope.solicitudForm.$invalid)
 	                 return;
+	     
 	 			DataService.guardarSolicitud($scope.solicitud.idReservacion,
 	             		$scope.solicitud.idDispositivo,
 	             		$scope.solicitud.idUsuarioPrestamo,

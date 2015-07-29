@@ -50,7 +50,7 @@ public class DispositivoService {
 	 */
 	@GET
 	@Path("/obtener")
-	@Produces(MediaType.APPLICATION_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<DispositivoWS> obtener() throws RemoteException {
 		List<DispositivoWS> dispositivos = new ArrayList<DispositivoWS>();
 		List<Dispositivo> listaDispositivo = null;

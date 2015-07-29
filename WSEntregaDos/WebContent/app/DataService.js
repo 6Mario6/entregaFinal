@@ -1,4 +1,12 @@
-﻿angularFormsApp.service('DataService', function($http) {
+﻿angularFormsApp.service('DataService',function($http,$filter) {
+	
+	this.listaDispositivos = function() {
+		return $http({
+			method : 'GET',
+			url : '../WSEntregaDos/rest/dispositivo/obtener'
+		});
+	};
+	
 	this.guardarUsuario = function(idUsuario,nombre,apellido, telefono,email,username,password,grupo) {
 		return $http({
 			method : 'POST',	
@@ -18,6 +26,11 @@
 	};
 	this.guardarSolicitud = function(idReservacion,idDispositivo,idUsuarioPrestamo, idAdministrador,
 			fechasolicitudinicio,horasolicitudinicio,estadosolicitud) {
+		
+		fechasolicitudinicio=	$filter('date')(new Date(fechasolicitudinicio), 'yyyy-MM-dd ');
+		horasolicitudinicio= $filter('date')(new Date(horasolicitudinicio), 'HH:mm:ss');
+		alert("fecha= "+fechasolicitudinicio);
+		alert("hora= "+horasolicitudinicio);
 		alert(idReservacion+idDispositivo+idUsuarioPrestamo+idAdministrador+fechasolicitudinicio
 				+horasolicitudinicio+estadosolicitud);
 		return $http({
