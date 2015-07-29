@@ -2,7 +2,7 @@
 angularFormsApp.controller('efController',
 		 ["$scope", "$window", "$routeParams", "DataService",
     function efController($scope, $window, $routeParams, DataService) {
-
+			 alert("Controlador efController");
         $scope.submitForm = function () {
 
             $scope.$broadcast('show-errors-event');
@@ -19,8 +19,6 @@ angularFormsApp.controller('efController',
     				).success(
     						function(data) {
     				   $window.alert("Se ingreso usuario correctamente ");
-
-
     		            $scope.$broadcast('hide-errors-event');
     		            $window.history.back();
     						});
