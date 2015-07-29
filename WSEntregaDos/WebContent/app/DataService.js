@@ -27,12 +27,10 @@
 	this.guardarSolicitud = function(idReservacion,idDispositivo,idUsuarioPrestamo, idAdministrador,
 			fechasolicitudinicio,horasolicitudinicio,estadosolicitud) {
 		
-		fechasolicitudinicio=	$filter('date')(new Date(fechasolicitudinicio), 'yyyy-MM-dd ');
+		fechasolicitudinicio=	$filter('date')(new Date(fechasolicitudinicio), 'yyyy-MM-dd');
 		horasolicitudinicio= $filter('date')(new Date(horasolicitudinicio), 'HH:mm:ss');
-		alert("fecha= "+fechasolicitudinicio);
-		alert("hora= "+horasolicitudinicio);
-		alert(idReservacion+idDispositivo+idUsuarioPrestamo+idAdministrador+fechasolicitudinicio
-				+horasolicitudinicio+estadosolicitud);
+		
+		
 		return $http({
 			method : 'POST',	
 			url : '../WSEntregaDos/rest/solicitud/guardar',

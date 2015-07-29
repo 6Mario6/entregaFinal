@@ -2,7 +2,11 @@ package com.udea.ws;
 
 import java.rmi.RemoteException;
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -75,19 +79,43 @@ public class SolicitudPrestamoService {
 	@Path("/guardar")
 	@Produces(MediaType.TEXT_PLAIN)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public String guardarSolicitud(@QueryParam("idReservacion") int idReservacion,
+	public String guardarSolicitud(
 			@QueryParam("idDispositivo") int idDispositivo,
 			@QueryParam("idUsuarioPrestamo") int idUsuarioPrestamo,
 			@QueryParam("idAdministrador") int idAdministrador,
 			@QueryParam("fechasolicitudinicio") String fecha_solicitud_inicio,
 			@QueryParam("horasolicitudinicio") String hora_solicitud_inicio,
 			@QueryParam("estadosolicitud") String estado_solicitud)
-			throws RemoteException {
+			throws RemoteException, ParseException {
 		try {
-			Date date = new Date();	
+			
+			/*String[] parts = fecha_solicitud_inicio.split("-");
+			int year=Integer.parseInt(parts[0]);
+			int month=Integer.parseInt(parts[1]);
+			int day=Integer.parseInt(parts[2]);*/
+			//System.out.print("hora_solicitud_inicio"+ hora_solicitud_inicio);
+			String[] timeparts = hora_solicitud_inicio.split(":");
+			int hour=Integer.parseInt(timeparts[0]);
+			int minute=Integer.parseInt(timeparts[1]);
+			int second=Integer.parseInt(timeparts[2]);
+			
+			String timee = fecha_solicitud_inicio;                              
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+			Date dt = df.parse(timee);                                      
+			Long l = dt.getTime();
+			
+			Date date2=new Date(l);
+			
+			//Date date=new Date();
+			/*
+			date.setYear(year);
+			date.setMonth(month);
+			date.setDate(day);*/
 			Time time = new Time(0);
-	
-solicitudlg.realizarSolicitud(idReservacion, idDispositivo, 1, idUsuarioPrestamo, date, time, estado_solicitud);
+			time.setHours(hour);
+			time.setMinutes(minute);
+			time.setSeconds(second);
+			solicitudlg.realizarSolicitud(idDispositivo, 1, idUsuarioPrestamo, date2, time, estado_solicitud);
 			
 		} catch (MyException e) {
 			log.error("ocurrió un error al guardar la solicitud", e);

@@ -16,9 +16,11 @@
 		<div class="form-group">
 			<label for="idDispositivo" class="col-sm-3 control-label">Dispositivo:</label>
 			<div class="col-sm-9">
-				<select name="idDispositivo" id="idDispositivo" class="form-control"
+				<!--<select name="idDispositivo" id="idDispositivo" class="form-control"
 					ng-model="solicitud.idDispositivo"
-					ng-options="dept for dept in departments"></select>
+					ng-options="dept for dept in departments"></select>-->
+					<input type="text" name="idDispositivo" id="idDispositivo"
+					class="form-control" ng-model="solicitud.idDispositivo" required></input>
 			</div>
 		</div>
 
@@ -27,7 +29,7 @@
 				usuario:</label>
 			<div class="col-sm-9">
 				<input type="text" name="idUsuarioPrestamo" id="idUsuarioPrestamo"
-					class="form-control" ng-model="solicitud.idUsuarioPrestamo"></input>
+					class="form-control" ng-model="solicitud.idUsuarioPrestamo" required></input>
 			</div>
 		</div>
 		<!--
@@ -45,7 +47,7 @@
 			<label for="fechasolicitudinicio" class="col-sm-3 control-label">Fecha
 				Solicitud Dispositivo:</label>
 			<div class="col-sm-9">
-				<datepicker ng-model="solicitud.fechasolicitudinicio"></datepicker>
+				<datepicker ng-model="solicitud.fechasolicitudinicio" ></datepicker>
 			</div>
 		</div>
 
@@ -53,7 +55,7 @@
 			<label for="horasolicitudinicio" class="col-sm-3 control-label">Hora
 				Solicitud inicio:</label>
 			<div class="col-sm-9">
-				<timepicker ng-model="solicitud.horasolicitudinicio"></timepicker>
+				<timepicker ng-model="solicitud.horasolicitudinicio" ></timepicker>
 			</div>
 		</div>
 
@@ -63,7 +65,7 @@
 				solicitud</label>
 			<div class="col-sm-9">
 				<select name="estadosolicitud" id="estadosolicitud"
-					class="form-control" ng-model="solicitud.estadosolicitud">
+					class="form-control" ng-model="solicitud.estadosolicitud" required>
 					<option>ESPERA</option>
 					<option>PRESTADO</option>
 					<option>REPARACION</option>
