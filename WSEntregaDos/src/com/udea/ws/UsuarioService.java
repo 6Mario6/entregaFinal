@@ -48,6 +48,7 @@ public class UsuarioService {
 	 */
 	@GET
 	@Path("/obtener")
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<UsuarioWS> obtener() throws RemoteException {
 		List<UsuarioWS> usuarios = new ArrayList<UsuarioWS>();
 		List<Usuario> listaUsuario = null;

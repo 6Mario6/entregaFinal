@@ -18,9 +18,7 @@ angularFormsApp.controller('efController',
     				$scope.usuario.grupo
     				).success(
     						function(data) {
-    				   $window.alert("Se ingreso usuario correctamente!! ");
-
-
+    					alert("Se ingreso usuario correctamente!! ");
     		            $scope.$broadcast('hide-errors-event');
     		            $window.history.back();
     						});
@@ -28,8 +26,7 @@ angularFormsApp.controller('efController',
         };
 
         $scope.cancelForm = function () {
-      
-         $window.history.back();
+            $window.history.back();
         };
 
         $scope.resetForm = function () {

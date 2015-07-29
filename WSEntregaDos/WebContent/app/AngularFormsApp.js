@@ -10,6 +10,10 @@ angularFormsApp.config(function ($routeProvider) {
             templateUrl: "app/UsuarioForm/efTemplate.html",
             controller: "efController"
         })
+        .when("/newSolicitudForm", {
+            templateUrl: "app/SolicitudForm/efsTemplate.html",
+            controller: "efsController"
+        })
         .otherwise({
             redirectTo: "/home"
         });
@@ -20,7 +24,12 @@ angularFormsApp.controller("HomeController",
         $scope.showCreateUsuarioForm = function () {
             $location.path('/newUsuarioForm');
         };
-    });
+        $scope.showCreateSolicitudForm = function () {
+            $location.path('/newSolicitudForm');
+        };
+        
+    }
+);
 
 
 

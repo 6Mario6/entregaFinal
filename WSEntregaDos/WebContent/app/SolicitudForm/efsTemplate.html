@@ -1,0 +1,72 @@
+<form class="form-horizontal" role="form" name="solicitudForm">
+
+	<fieldset>
+		<legend>Solicitud de dispositivos</legend>
+		<div class="form-group">
+			<label for="idReservacion" class="col-sm-3 control-label">Numero
+				ID:</label>
+			<div class="col-sm-9">
+				<input type="text" id="idReservacion" name="idReservacion"
+					class="form-control" ng-model="solicitud.idReservacion" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="idDispositivo" class="col-sm-3 control-label">Numero Dispositivo:</label>
+			<div class="col-sm-9">
+				<input type="text" name="idDispositivo" id="idDispositivo" class="form-control"
+					ng-model="solicitud.idDispositivo"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="idUsuarioPrestamo" class="col-sm-3 control-label">ID usuario:</label>
+			<div class="col-sm-9">
+				<input type="text" name="idUsuarioPrestamo" id="idUsuarioPrestamo"
+					class="form-control" ng-model="solicitud.idUsuarioPrestamo"></input>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="idAdministrador" class="col-sm-3 control-label">Id Administrador:</label>
+			<div class="col-sm-9">
+				<input type="text" name="idAdministrador" id="idAdministrador"
+					class="form-control" ng-model="solicitud.idAdministrador"></input>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="fechasolicitudinicio" class="col-sm-3 control-label">fechasolicitudinicio:</label>
+			<div class="col-sm-9">
+				<input type="text" name="fechasolicitudinicio" id="fechasolicitudinicio"
+					class="form-control" ng-model="solicitud.fechasolicitudinicio"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="horasolicitudinicio" class="col-sm-3 control-label">Id Administrador:</label>
+			<div class="col-sm-9">
+				<input type="text" name="horasolicitudinicio" id="horasolicitudinicio"
+					class="form-control" ng-model="solicitud.horasolicitudinicio"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="estadosolicitud" class="col-sm-3 control-label">estado solicitud</label>
+			<div class="col-sm-9">
+				<input type="text" name="estadosolicitud" id="estadosolicitud" class="form-control"
+					ng-model="solicitud.estadosolicitud"></input>
+			</div>
+		</div>
+
+	</fieldset>
+	<br />
+
+	<div class="col-sm-offset-3 col-sm-9">
+		<input type="submit" class="btn btn-primary" value="Guardar"
+			ng-click="submitForm()" /> <input type="reset"
+			class="btn btn-warning" value="Reset" ng-click="resetForm()" />
+			 <input type="button" class="btn btn-default" value="Cancel"
+			ng-click="cancelForm()" />
+		<div class="alert alert-danger" ng-if="hasFormError">{{formErrors}}</div>
+	</div>
+
+</form>
